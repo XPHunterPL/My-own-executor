@@ -151,7 +151,7 @@ local function LoadExecutor()
     CodeBox.Font = Enum.Font.Code
     CodeBox.TextSize = 18
     CodeBox.MultiLine = true
-    CodeBox.Text = "—— by XPHunterPL ——"
+    CodeBox.Text = "-- by XPHunterPL --"
     Instance.new("UICorner", CodeBox)
 
     -- EXECUTE BUTTON
@@ -177,8 +177,12 @@ local function LoadExecutor()
 
     -- FUNCTIONS
     Run.MouseButton1Click:Connect(function()
-        print("Executing:")
-        print(CodeBox.Text)
+        local success, err = pcall(function()
+            loadstring(CodeBox.Text)()
+        end)
+        if not success then
+            warn("Błąd w skrypcie: "..err)
+        end
     end)
 
     Clear.MouseButton1Click:Connect(function()
