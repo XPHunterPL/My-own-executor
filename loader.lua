@@ -92,6 +92,6 @@ Confirm.MouseButton1Click:Connect(function()
         -- Wczytanie prawdziwego executora:
         loadstring(game:HttpGet("https://raw.githubusercontent.com/XPHunterPL/My-own-executor/main/executor.lua"))()
     else
-        Wrong.Text = "XPHunterPL"
+        Wrong.Text = "Wrong.Text = "Wrong key!""
     end
 end)
